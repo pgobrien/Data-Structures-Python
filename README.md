@@ -1,7 +1,7 @@
 # Data-Structures-Python
 Some Data Structures implemented in Python
 
-ArrayList
+Dynamic List
 LinkedList
 Stack
 Queue
