@@ -1,12 +1,12 @@
 from Exceptions import *
 
 
-class StackNode(object):
+class StackNode:
     def __init__(self, data):
         self.data = data
         self.next = None
 
-class MyStack(object):
+class MyStack:
 
     def __init__(self):
         self.top = None

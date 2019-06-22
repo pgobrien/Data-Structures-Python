@@ -1,10 +1,10 @@
 import ctypes
 
 
-class DynamicList(object):
+class DynamicList:
     '''
-    Dynamic
-
+    Dynamic List
+    Dynamically Changes Sizes
     '''
 
     def __init__(self):
