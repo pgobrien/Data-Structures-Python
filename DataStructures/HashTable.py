@@ -1,5 +1,5 @@
-from Exceptions import *
-import AbstractHash
+from DataStructures import AbstractHash
+
 
 class HashTable(AbstractHash):
     """Hash Map implemented using Separate Chaining"""

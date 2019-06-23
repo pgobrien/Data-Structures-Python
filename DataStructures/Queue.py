@@ -1,4 +1,4 @@
-from Exceptions import *
+from DataStructures.Exceptions import *
 
 
 class QueueNode(object):

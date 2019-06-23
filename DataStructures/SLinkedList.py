@@ -1,6 +1,3 @@
-from Exceptions import *
-
-
 class LinkedNode:
     def __init__(self, data):
         self.data = data
