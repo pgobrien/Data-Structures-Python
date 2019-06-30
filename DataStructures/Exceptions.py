@@ -4,7 +4,5 @@ class StackError(Exception):
     pass
 
 class EmptyStackException(StackError):
-
-    """Empty Stack"""
-    def __init__(self):
-        print("Stack Empty Error")
+    """Error an empty stack"""
+    pass
