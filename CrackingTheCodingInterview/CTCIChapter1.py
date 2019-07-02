@@ -8,11 +8,12 @@ def is_unique(a_string):
         counts[c] = counts.get(c, 0) + 1
     return True
 
+
 def is_unique_v2(a_string):
     # without a data structure
     sorted_string = "".join(sorted(a_string))
     for i in range(0, len(sorted_string) - 1):
-        if sorted_string[i] == sorted_string[i+1]:
+        if sorted_string[i] == sorted_string[i + 1]:
             return False
     return True
 
@@ -37,10 +38,12 @@ def check_permutation(string_one, string_two):
     if len(string_one) != len(string_two): return False
     return sorted(string_one) == sorted(string_two)
 
+
 print(check_permutation("hello", "lleho"))
 print(check_permutation("pretty", "meh"))
 print(check_permutation(" h ello", "lleho  "))
 print(check_permutation("hello", "lho"))
+
 
 def check_permutationV2(string_one, string_two):
     # solves in O(max( len(string_one), len(string_two) ) )
@@ -73,6 +76,7 @@ print(urlify("sir patrick obrien"))
 print(urlify("hhmm  not sure  if    more spaces are allowed"))
 print()
 
+
 def urlify_difficult(a_string):
     new_string = []
     for c in a_string.rstrip():
@@ -82,27 +86,112 @@ def urlify_difficult(a_string):
             new_string.append(c)
     return ''.join(new_string)
 
+
 print(urlify_difficult("patrick obrien"))
 print(urlify_difficult("sir patrick obrien"))
 print(urlify_difficult("hhmm  not sure  if    more spaces are allowed"))
+print()
 
+# Determine if a string is the permutation of a palindrome
+# To do so if the length of the string is even then the counts of all characters must be even
+# if the length of the string is odd then only one character count can be odd
 def palindrome_permutation(a_string):
-    pass
+    a_string = a_string.lower().replace(' ', "")
+    counts = {}
+    odd_count = 0
 
+    for letter in a_string:
+        counts[letter] = counts.get(letter, 0) + 1
 
+    if len(a_string) % 2 == 0:
+        for val in counts.values():
+            print(val)
+            if val % 2 != 0:
+                return False
+        return True
+    else:
+        for val in counts.values():
+            if val % 2 != 0 and odd_count > 1:
+                return False
+            if val % 2 != 0:
+                odd_count += 1
+        return True
+
+print(palindrome_permutation("Tact Coa"))
+print(palindrome_permutation("leloo"))
+print(palindrome_permutation("Talloopci"))
+print(palindrome_permutation("ce ar rac"))
+print()
+#Three types of edits on a string:
+# insert a character
+# remove a character
+# replace a character
 def one_away(string_one, string_two):
-    pass
+    counts = {}
+    string_one = string_one.replace(' ', '')
+    string_two = string_two.replace(' ', '')
+    if string_one == string_two:
+        return True
 
+    for letter in string_one:
+        counts[letter] = counts.get(letter, 0) + 1
+    for letter in string_two:
+        counts[letter] = counts.get(letter, 0) - 1
+        if counts[letter] == 0:
+            del counts[letter]
+
+    if len(counts) > 2:
+        return False
+    inc = 0
+    for val in counts.values():
+        inc += val
+    if len(counts) == 2 and inc != 0:
+        return False
+    if len(counts) == 1 and inc != 1:
+        return False
+    return True
+
+print(one_away("pale", "ple"))
+print(one_away("pales", "pale"))
+print(one_away("pale", "bale"))
+print(one_away("pale", "bake"))
+print(one_away("ale", "pale"))
+print(one_away("apale", "pale"))
+print(one_away("bale", "balz"))
+print(one_away("pibb", "pib"))
+print()
 
 def string_compression(a_string):
-    pass
+    new_string = []
+    cur = a_string[0]
+    count = 0
+    for i in range(0, len(a_string)):
+        if a_string[i] != cur:
+            new_string.append(cur)
+            new_string.append(str(count))
+            cur = a_string[i]
+            count = 1
+        else:
+            count += 1
+    new_string.append(cur)
+    new_string.append(str(count))
+    new_string = ''.join(new_string)
+
+    return new_string if len(new_string) < len(a_string) else a_string
+
+print(string_compression("aabcccccaaa"))
+print(string_compression("bbbbccccccccaaaab"))
+print(string_compression("aaabbbbcccc"))
+print(string_compression("abcdefg"))
 
 
 def rotate_matrix(matrix):
     pass
 
+
 def zero_matrix(matrix):
     pass
+
 
 def string_rotation(s1, s2):
     pass
