@@ -1,4 +1,9 @@
 # Questions from Cracking the coding interview Arrays and Strings Chapter
+import random
+def generate_matrix(rows, cols):
+    return [[random.randint(0, 5) for x in range(cols)] for y in range(rows)]
+
+
 
 def is_unique(a_string):
     # with a data structure
@@ -185,13 +190,50 @@ print(string_compression("aaabbbbcccc"))
 print(string_compression("abcdefg"))
 
 
-def rotate_matrix(matrix):
+def rotate_matrix(matrix, dir):
     pass
+
+
+
 
 
 def zero_matrix(matrix):
-    pass
+    zeros = []
+    # Loop through Rows
+    for i in range(len(matrix)):
+        for j in range(len(matrix[0])):
+
+            if matrix[i][j] == 0:
+                zeros.append((i, j))
+
+    # For rows
+    for e in zeros:
+        # for cols
+        for row in range(len(matrix)):
+            matrix[row][e[1]] =  0
+
+        # for rows
+        for col in range(len(matrix[0])):
+            matrix[e[0]][col] = 0
+
+    return matrix
+
+test_one = zero_matrix([[3, 4, 1, 5], [4, 2, 2, 0]])
+test_two = zero_matrix([[2, 1, 2], [2,3,5], [4,5,6], [7,0,5], [1,2,3], [4,5,6], [1,2,3]])
+test_three = zero_matrix([[1,2,3,4], [2,3,4,0], [1,2,3,4], [1,2,3,4]])
+
+print(test_one)
+print(test_two)
+print(test_three)
+
+
 
 
 def string_rotation(s1, s2):
     pass
+
+
+
+
+
+
