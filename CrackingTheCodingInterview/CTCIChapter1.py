@@ -227,10 +227,22 @@ print(test_two)
 print(test_three)
 
 
-
-
 def string_rotation(s1, s2):
-    pass
+
+    if len(s1) != len(s2):
+        return False
+
+    s3 = s2 + s2
+
+    if s1 in s3:
+        return True
+    else:
+        return False
+
+print(string_rotation("table", 'bleta'))
+print(string_rotation("waterbottle", "erbottlewat"))
+print(string_rotation("travel", "velate"))
+
 
 
 
