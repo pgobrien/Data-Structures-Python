@@ -53,10 +53,10 @@ class LinkedList:
 
     def print(self):
         current = self.head
-        pretty = []
+        beautiful = []
         while current is not None:
-            pretty.append(str(current.get_data()))
-            pretty.append(" -> ")
+            beautiful.append(str(current.get_data()))
+            beautiful.append(" -> ")
             current = current.get_next()
-        pretty.append("None")
-        print("".join(pretty))
+        beautiful.append("None")
+        print("".join(beautiful))
